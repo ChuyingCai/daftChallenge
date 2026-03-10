@@ -101,7 +101,7 @@ pgm.add_node("acid", "Acid", 1, 1, aspect=2.2, scale=1.0,
                  "alpha": 0.95,
              })
 # Bacteria in Food node (middle) — tighter x-spacing keeps plot width reasonable
-pgm.add_node("bacteria_in_food", "Bacteria in Food", 2.85, 1, aspect=2.5, scale=1.15,
+pgm.add_node("bacteria_in_food", "Bacteria in Food", 2.85, 1, aspect=2.5, scale=1.2,
              plot_params={
                  "facecolor": "#e8e4dc",
                  "edgecolor": "#8a857c",
@@ -150,7 +150,7 @@ pgm.add_node("vitamin_c", "Vitamin C", 1, 1, aspect=2.2, scale=1.0,
                  "alpha": 0.95,
              })
 # Collagen Synthesis (middle) — tighter x-spacing keeps plot width reasonable
-pgm.add_node("collagen_synthesis", "Collagen Synthesis", 2.85, 1, aspect=2.5, scale=1.15,
+pgm.add_node("collagen_synthesis", "Collagen Synthesis", 2.85, 1, aspect=2.5, scale=1.4,
              plot_params={
                  "facecolor": "#e8e4dc",
                  "edgecolor": "#8a857c",
