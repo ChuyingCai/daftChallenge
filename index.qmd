@@ -22,7 +22,7 @@ First, let's install the DAFT package and set up our environment:
 
 ```{python}
 #| label: setup-environment
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 
@@ -47,7 +47,7 @@ print("Ready to create beautiful DAGs!")
 
 ```{python}
 #| label: dag-1-1747
-#| echo: true
+#| echo: false
 #| fig-cap: "Simplified Lind's Model (1747)"
 
 # Create PGM: two nodes (Lemons → Scurvy) with professional styling
@@ -82,23 +82,26 @@ plt.title("Simplified Lind's Model (1747)- Correct but Incomplete", fontsize=12,
 
 ```{python}
 #| label: dag-2-misguided
-#| echo: true
+#| echo: false
 #| fig-cap: "Updated Bacterial Theory (Late 19th Century) — Misguided Belief"
+#| fig-width: 6.5
+#| fig-height: 2.8
+#| fig-dpi: 120
 
 # Create DAG showing the misguided belief: Acid → Bacteria in Food → Scurvy
-# Nodes spaced apart so ellipses and arrows are clearly visible
-pgm = daft.PGM(dpi=150, alternate_style="outer")
+# Compact layout so the full figure fits in HTML without clipping
+pgm = daft.PGM(dpi=120, alternate_style="outer")
 
 # Acid node (left) — muted styling to signal incorrect theory
-pgm.add_node("acid", "Acid", 0.8, 1, aspect=2.2, scale=1.1,
+pgm.add_node("acid", "Acid", 1, 1, aspect=2.2, scale=1.0,
              plot_params={
                  "facecolor": "#b8d4e8",
                  "edgecolor": "#2e6a9e",
                  "linewidth": 2,
                  "alpha": 0.95,
              })
-# Bacteria in Food node (middle)
-pgm.add_node("bacteria_in_food", "Bacteria in Food", 3.5, 1, aspect=2.8, scale=1.4,
+# Bacteria in Food node (middle) — tighter x-spacing keeps plot width reasonable
+pgm.add_node("bacteria_in_food", "Bacteria in Food", 2.85, 1, aspect=2.5, scale=1.15,
              plot_params={
                  "facecolor": "#e8e4dc",
                  "edgecolor": "#8a857c",
@@ -106,7 +109,7 @@ pgm.add_node("bacteria_in_food", "Bacteria in Food", 3.5, 1, aspect=2.8, scale=1
                  "alpha": 0.95,
              })
 # Scurvy node (right)
-pgm.add_node("scurvy", "Scurvy", 6.6, 1, aspect=2.2, scale=1.5,
+pgm.add_node("scurvy", "Scurvy", 4.7, 1, aspect=2.2, scale=1.15,
              plot_params={
                  "facecolor": "#f0d8d8",
                  "edgecolor": "#8b3a3a",
@@ -119,7 +122,7 @@ pgm.add_edge("acid", "bacteria_in_food")
 pgm.add_edge("bacteria_in_food", "scurvy")
 
 pgm.render()
-plt.title("⚠️ Updated Bacterial Theory (Late 19th Century) — Misguided Belief", fontsize=12, pad=10);
+plt.title("⚠️ Updated Bacterial Theory (Late 19th Century) — Misguided Belief", fontsize=11, pad=8);
 ```
 
 ### DAG 3: The 1928 Understanding (Complete and Correct)
@@ -128,23 +131,26 @@ plt.title("⚠️ Updated Bacterial Theory (Late 19th Century) — Misguided Bel
 
 ```{python}
 #| label: dag-3-1928
-#| echo: true
+#| echo: false
 #| fig-cap: "Simplified Modern Understanding (1930s onwards)-Complete and Correct"
+#| fig-width: 6.5
+#| fig-height: 2.8
+#| fig-dpi: 120
 
-# Create DAG showing the 1928 understanding: Vitamin C → Scurvy Prevention
-# Nodes spaced apart so ellipses and arrows are clearly visible
-pgm = daft.PGM(dpi=150, alternate_style="outer")
+# Create DAG showing the 1928 understanding: Vitamin C → Collagen Synthesis → Scurvy
+# Compact layout so the full figure fits in HTML without clipping
+pgm = daft.PGM(dpi=120, alternate_style="outer")
 
 # Vitamin C node (left) — vibrant green fill
-pgm.add_node("vitamin_c", "Vitamin C", 0.8, 1, aspect=2.2, scale=1.1,
+pgm.add_node("vitamin_c", "Vitamin C", 1, 1, aspect=2.2, scale=1.0,
              plot_params={
                  "facecolor": "#b8e8b8",
                  "edgecolor": "#2e7e2e",
                  "linewidth": 2,
                  "alpha": 0.95,
              })
-# Collagen Synthesis (middle)
-pgm.add_node("collagen_synthesis", "Collagen Synthesis", 3.5, 1, aspect=2.8, scale=1.4,
+# Collagen Synthesis (middle) — tighter x-spacing keeps plot width reasonable
+pgm.add_node("collagen_synthesis", "Collagen Synthesis", 2.85, 1, aspect=2.5, scale=1.15,
              plot_params={
                  "facecolor": "#e8e4dc",
                  "edgecolor": "#8a857c",
@@ -152,7 +158,7 @@ pgm.add_node("collagen_synthesis", "Collagen Synthesis", 3.5, 1, aspect=2.8, sca
                  "alpha": 0.95,
              })
 # Scurvy node (right)
-pgm.add_node("scurvy", "Scurvy", 6.6, 1, aspect=2.2, scale=1.5,
+pgm.add_node("scurvy", "Scurvy", 4.7, 1, aspect=2.2, scale=1.15,
              plot_params={
                  "facecolor": "#f0d8d8",
                  "edgecolor": "#8b3a3a",
@@ -165,7 +171,7 @@ pgm.add_edge("vitamin_c", "collagen_synthesis")
 pgm.add_edge("collagen_synthesis", "scurvy")
 
 pgm.render()
-plt.title("☑️Simplified Modern Understanding (1930s onwards)-Complete and Correct", fontsize=12, pad=10);
+plt.title("☑️Simplified Modern Understanding (1930s onwards)-Complete and Correct", fontsize=11, pad=8);
 ```
 
 
